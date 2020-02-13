@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- node
+deploy:
+  provider: heroku
+  api_key:
+    secure: "5e9a8218-a46c-4de0-8e75-1056a342bc83"
+  app:
+    master: travis2
+env:
+  global:
+    secure: CfFhJ5ejTMmsn1ji2rTkwtYeHK1YSl88AdYgTJ4TEPAMJbIp2dsNE23Gl/ZRx/lUHxjTOqjUhTHeltVebuhMnF319WJumHgwu/lqn1EdBn1dvVeWmt9dbX/1sbX69phHxd1cXzhSS3HUV6ptvriFhTq17H9qS69onmt6YpH7VtRyRQMUqUse2RrFaMuK1LPnJJOD6I8iQC0RcvnIOlCvJWYnIcfLzgRlxGA78/w4v+HOCQsOGxAWgFPm8dps6UZDOrob7syjTGeHlkKYaZ/A2OB90y9CkEDhg/F4crqfRqs+QxcEyL2oWtmN/3pUDG63zDVCZNJZCW6M0te2q8JqYTpEeoceXTCBB0H3buj+YwkhlVgKaVBUf5UPZSJ0BVSlsrg1itH1q5PXfG/qWgCG/y7hLzWC5yPztvHa1llmxMl/LjC0Cc5Y5d6W8BVX76alX0oFjyJvCuALsauqu7DTYOIDb48PI0dXpkHbwcNQ91ESGVg/0Q+VxdJ62DWHjuIHl7XqbL/7lOs77GLNRrmOqyCEKLkNdl9xSNMn+QrIqmFjbobITcBGTCZ95/2JZOuKvImh1EMOVl4HxSTTKaJ1a0hka9Iin/NHDKMwY6WCU8J2jYUatOy8xmp0xvn6i8zldThRFjcep614xqQMXG/5FBEnhVuBU6amDBIST/mGi40=

@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "express": "latest"
+  },
+  "devDependencies": {
+    "jest": "latest"
+  },
+  "scripts": {
+    "start": "node hello.js",
+    "test": "jest --forceExit"
+  }
+}
