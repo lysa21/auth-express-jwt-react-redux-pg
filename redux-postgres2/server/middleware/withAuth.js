@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
-const secret = 'secret';
-
+const dotenv = require("dotenv");
+dotenv.config();
 const withAuth = function(req, res, next) {
  console.log(req.cookies.token)
 
@@ -14,7 +14,7 @@ const withAuth = function(req, res, next) {
   if (!token) {
     res.status(401).send('Unauthorized: No token provided');
   } else {
-    jwt.verify(token, secret, function(err, decoded) {
+    jwt.verify(token, process.env.JWT_SECRET, function(err, decoded) {
       if (err) {
         res.status(401).send('Unauthorized: Invalid token');
       } else {
