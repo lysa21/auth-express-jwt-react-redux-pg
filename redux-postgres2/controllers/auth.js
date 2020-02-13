@@ -4,7 +4,7 @@ dotenv.config();
 const { hash, compare } = require("bcryptjs");
 const { Pool } = require("pg");
 
-const connectionString = "postgres://postgres:root@localhost:5432/react-node";
+const connectionString = `postgres://${process.env.PG_USER}:${process.env.PG_PASS}@localhost:5432/react-node`;
 const pool = new Pool({
   connectionString: connectionString,
   ssl: false
@@ -23,7 +23,7 @@ exports.signup = function(req, res) {
         "SELECT * from users where email = $1",
         [req.body.email],
         async function(err, rows) {
-         if (err) res.send(err);
+          if (err) res.send(err);
 
           if (rows && rows.rowCount === 0) {
             console.log("There is no such user, adding now");

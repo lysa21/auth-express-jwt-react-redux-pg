@@ -1,0 +1,58 @@
+version: "3.6"
+services:
+    web:
+        container_name: web
+        build: .
+        env_file: .env
+        volumes:
+        - .:/usr/src/app
+        - /usr/src/app/node_modules
+        ports:
+        - "8080:8080"
+        # depends_on:
+        #   - postgres
+
+    postgres:
+        container_name: postgres
+        image: postgres:latest
+        ports:
+            - "5432:5432"
+        volumes:
+            - /data/postgres:/data/postgres
+        env_file:
+            - .env
+        networks:
+            - postgres
+     
+# pgadmin:
+#     links:
+#         - postgres:postgres
+#     container_name: pgadmin
+#     image: dpage/pgadmin4
+#     ports:
+#     - "8080:80"
+#     volumes:
+#     - /data/pgadmin:/root/.pgadmin
+#     env_file:
+#     - docker.env
+#     networks:
+#     - postgres
+     
+networks:
+    postgres:
+        driver: bridge
+
+
+
+#   jenkins:
+#     container_name: jenkins
+#     image: jenkinsci/blueocean
+#     user: root
+#     ports:
+#       - "8080:8080"
+#       - "8443:8443"
+#       - "50000:50000"
+#     volumes:
+#       - ./jenkins-data:/var/jenkins_home
+#       - ./home:/home
+#       - /var/run/docker.sock:/var/run/docker.sock
